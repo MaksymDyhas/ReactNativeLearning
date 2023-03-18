@@ -1,14 +1,15 @@
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { Cars, TravelCar, VillageHouse } from "./assets/svgImages";
-
+import LinearGradient from "react-native-linear-gradient";
 
 function App() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar backgroundColor="#284eb4" />
-      <View style={styles.background}>
+      <LinearGradient colors={["#284db4", 'rgba(134,46,46,0.82)' ,"rgb(61,54,54)"]}
+                      style={styles.linearGradient}>
         <View style={styles.forSvg}>
           <View style={styles.forTwoSvgInRow}>
             <Cars width={"45%"} height={150} fill={"#ded9d9"} />
@@ -22,24 +23,20 @@ function App() {
           <Text style={styles.textMedium}>This is a Medium font</Text>
           <Text style={styles.textRegular}>This is a Regular font</Text>
         </View>
-      </View>
+      </LinearGradient>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#284eb4",
-    paddingHorizontal: 15,
-  },
+  background: {},
   forTwoSvgInRow: {
     flexDirection: "row",
     justifyContent: "space-around",
   },
   forSvg: {
-    marginTop: 30,
+    flex: 1,
+    justifyContent: "center",
   },
   car: {
     margin: 0,
@@ -74,6 +71,19 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: "#ded4d4",
     marginVertical: 4,
+  },
+  linearGradient: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 15,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Gill Sans",
+    textAlign: "center",
+    margin: 15,
+    color: "#ffffff",
+    backgroundColor: "transparent",
   },
 });
 
