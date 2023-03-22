@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import Config from "react-native-config";
 
 const Profile = () => {
   return (
@@ -9,11 +10,11 @@ const Profile = () => {
                       style={styles.linearGradient}>
         <View style={styles.topOfPage}>
           <View style={styles.forPhoto}>
-            <Image style={styles.photo} source={require("../assets/white-man-person-icon.png")} />
+            <Image style={styles.photo} source={require("../../assets/white-man-person-icon.png")} />
           </View>
           <View style={styles.forInfo}>
             <View style={styles.nameAndSurname}>
-              <Text style={styles.name}>Maksym</Text>
+              <Text style={styles.name}>{Config.NAME}</Text>
             </View>
             <View style={styles.nameAndSurname}>
               <Text style={styles.name}>Dyhas</Text>

@@ -1,10 +1,14 @@
 import React from "react";
-import { Image, SafeAreaView, StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { Image, Linking, SafeAreaView, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { Cars, TravelCar, VillageHouse } from "../assets/svgImages";
+import { Cars, TravelCar, VillageHouse } from "../../assets/svgImages";
 import MaskedView from "@react-native-masked-view/masked-view";
+import { HomeProps } from "../stack/RootStack";
+import Config from "react-native-config";
 
-const Home = ({ navigation }) => {
+
+const Home = ({ navigation }: HomeProps) => {
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <LinearGradient colors={["#284db4", "rgba(134,46,46,0.82)", "rgb(61,54,54)"]}
@@ -32,14 +36,27 @@ const Home = ({ navigation }) => {
             </MaskedView>
           </View>
           <View style={styles.otherFontsForMask}>
-            <MaskedView style={{ flex: 1, justifyContent:'center', alignItems:'center' }} maskElement={
+            <MaskedView style={{ flex: 1, justifyContent: "center", alignItems: "center" }} maskElement={
               <View style={{ backgroundColor: "transparent", paddingLeft: 55 }}>
                 <Text style={styles.textSemiBold}>Click to enter profile</Text>
               </View>
             }>
               <TouchableHighlight onPress={() => navigation.navigate("Profile")}>
                 <View style={{ padding: -60 }}>
-                  <Image source={require("../assets/Gradient.webp")} style={{ width: 360, height: 65 }} />
+                  <Image source={require("../../assets/Gradient.webp")} style={{ width: 360, height: 65 }} />
+                </View>
+              </TouchableHighlight>
+            </MaskedView>
+          </View>
+          <View style={styles.otherFontsForMask}>
+            <MaskedView style={{ flex: 1, justifyContent: "center", alignItems: "center" }} maskElement={
+              <View style={{ backgroundColor: "transparent", paddingLeft: 55 }}>
+                <Text style={styles.textSemiBold}>Open google from .env</Text>
+              </View>
+            }>
+              <TouchableHighlight onPress={() => Linking.openURL(Config.GOOGLE as string)}>
+                <View style={{ padding: -60 }}>
+                  <Image source={require("../../assets/Gradient.webp")} style={{ width: 360, height: 65 }} />
                 </View>
               </TouchableHighlight>
             </MaskedView>
@@ -53,27 +70,27 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   forTwoSvgInRow: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-around"
   },
   forSvg: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   car: {
     margin: 0,
     padding: 0,
     marginTop: 30,
     fill: "#1a1c1a",
-    marginLeft: "5%",
+    marginLeft: "5%"
   },
   forText: {
-    flex: 1,
+    flex: 1
   },
   forMask: {
     flex: 1 / 3,
     backgroundColor: "#2c2c2c",
     borderRadius: 15,
-    padding: 10,
+    padding: 10
   },
   textBold: {
     fontFamily: "EduNSWACTFoundation-Bold",
@@ -82,7 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    textAlign: "center",
+    textAlign: "center"
   },
   otherFontsForMask: {
     flex: 1 / 5,
@@ -91,31 +108,31 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 5,
     borderWidth: 2,
-    borderColor: 'white'
+    borderColor: "white"
   },
   textRegular: {
     fontFamily: "EduNSWACTFoundation-Regular",
     fontSize: 32,
     color: "black",
-    marginVertical: 4,
+    marginVertical: 4
   },
   textMedium: {
     fontFamily: "EduNSWACTFoundation-Medium",
     fontSize: 32,
     color: "black",
-    marginVertical: 4,
+    marginVertical: 4
   },
   textSemiBold: {
     fontFamily: "EduNSWACTFoundation-SemiBold",
     fontSize: 32,
     color: "black",
-    marginVertical: 4,
+    marginVertical: 4
   },
   linearGradient: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 15,
-  },
+    paddingHorizontal: 15
+  }
 });
 
 
