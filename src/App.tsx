@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StatusBar, StyleSheet } from "react-native";
 import Navigation from "../navigation";
+import SplashScreen from "react-native-splash-screen";
+
 
 function App() {
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <>
@@ -12,7 +18,6 @@ function App() {
   );
 }
 
-const styles = StyleSheet.create({
-});
+const styles = StyleSheet.create({});
 
 export default App;
