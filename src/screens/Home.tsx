@@ -1,11 +1,10 @@
 import React from "react";
-import { Linking, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Linking, SafeAreaView, StyleSheet, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { TravelCar } from "../../assets/svgImages";
-import MaskedView from "@react-native-masked-view/masked-view";
 import { HomeProps } from "../stack/RootStack";
 import Config from "react-native-config";
-import MyButton from "../../src/components/MyButton"
+import MyButton from "../../src/components/MyButton";
 
 
 const Home = ({ navigation }: HomeProps) => {
@@ -16,21 +15,10 @@ const Home = ({ navigation }: HomeProps) => {
                       style={styles.linearGradient}>
         <View style={styles.forSvg}>
           <MyButton title={"Flash Messages"} onPress={() => navigation.navigate("TestFlashMessages")} />
+          <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc"}} title={"Todo List (Async Storage)"} onPress={() => navigation.navigate("TodoList")} />
+          <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }} title={"Sign in (Encrypted)"}
+                    onPress={() => navigation.navigate("Login")} />
           <TravelCar width={"90%"} height={100} style={styles.car} />
-        </View>
-        <View style={styles.forMask}>
-          <MaskedView style={{ flex: 1, flexDirection: "row" }}
-                      maskElement={
-                        <View style={{ backgroundColor: "transparent" }}>
-                          <Text style={styles.textBold}>I`m added navigation to my project. Enter button below</Text>
-                        </View>
-                      }>
-            <LinearGradient
-              style={{ flex: 1 }}
-              useAngle={true}
-              angle={220}
-              colors={["rgb(0,97,248)", "rgba(92,164,194,0.58)", "#ffb500"]} />
-          </MaskedView>
         </View>
         <MyButton style={{ marginVertical: 15 }} title={"Click to enter profile"}
                   onPress={() => navigation.navigate("Profile")} />
@@ -49,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   car: {
-    marginVertical: 70,
+    marginVertical: 50,
     padding: 0,
     fill: "#1a1c1a",
     marginLeft: "5%"

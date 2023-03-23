@@ -28,8 +28,8 @@ const MyButton = ({ title, onPress, style }: Props) => {
 
 const styles = StyleSheet.create({
   textSemiBold: {
-    fontFamily: "EduNSWACTFoundation-SemiBold",
-    fontSize: 32,
+    fontFamily: "EduNSWACTFoundation-Regular",
+    fontSize: 36,
     color: "black",
     marginVertical: 4
   },
