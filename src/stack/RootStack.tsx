@@ -2,11 +2,13 @@ import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import TestFlashMessages from "../screens/TestFlashMessages";
 
 
 type RootStackParamList = {
   Home: undefined;
   Profile: undefined;
+  TestFlashMessages: undefined;
 };
 
 
@@ -29,6 +31,7 @@ const RootStack = () => {
     }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile}/>
+      <Stack.Screen name="TestFlashMessages" component={TestFlashMessages} options={{title: 'Flash Messages'}}/>
     </Stack.Navigator>
   );
 };
