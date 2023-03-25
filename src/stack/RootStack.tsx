@@ -2,7 +2,7 @@ import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TestFlashMessages from "../screens/TestFlashMessages";
+import ReduxTraining from "../screens/ReduxTraining";
 import Login from "../screens/Login";
 import TodoList from "../screens/TodoList";
 import AddTodo from "../screens/AddTodo";
@@ -11,7 +11,7 @@ import AddTodo from "../screens/AddTodo";
 type RootStackParamList = {
   Home: undefined;
   Profile: undefined;
-  TestFlashMessages: undefined;
+  ReduxTraining: undefined;
   Login: undefined;
   TodoList: undefined;
   AddTodo: undefined;
@@ -39,7 +39,7 @@ const RootStack = () => {
     }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile}/>
-      <Stack.Screen name="TestFlashMessages" component={TestFlashMessages} options={{title: 'Flash Messages'}}/>
+      <Stack.Screen name="ReduxTraining" component={ReduxTraining} options={{title: 'Redux Training'}}/>
       <Stack.Screen name="Login" component={Login} options={{title: 'Sign in'}}/>
       <Stack.Screen name="TodoList" component={TodoList} options={{title: 'TODO'}}/>
       <Stack.Screen name="AddTodo" component={AddTodo} options={{title: 'Add TODO'}}/>

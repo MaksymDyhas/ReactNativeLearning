@@ -135,7 +135,7 @@ const Login = () => {
                   value={usernameForCheck} onChangeText={setUsernameForCheck}
                 />
               </View>
-              <View style={{ ...styles.buttons, justifyContent: "center" }}>
+              <View style={{ ...styles.buttons, marginBottom: 0, justifyContent: "center" }}>
                 <TouchableOpacity style={styles.button} onPress={() => retrieveUser()}>
                   <Text style={{ color: "white" }}>Check </Text>
                 </TouchableOpacity>
@@ -160,8 +160,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   inputView: {
-    width: "100%",
-    marginVertical: 15
+    width: "100%"
   },
   label: {
     fontSize: 22,
