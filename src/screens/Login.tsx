@@ -117,9 +117,6 @@ const Login = () => {
                 value={password} onChangeText={setPassword} />
             </View>
             <View style={styles.buttons}>
-              <TouchableOpacity style={styles.button} onPressIn={() => EncryptedStorage.clear()}>
-                <Text style={{ color: "white" }}>Clear storage(for Test) </Text>
-              </TouchableOpacity>
               <TouchableOpacity style={styles.button} onPressIn={() => {
                                   signUp();
                                   Keyboard.dismiss()}}

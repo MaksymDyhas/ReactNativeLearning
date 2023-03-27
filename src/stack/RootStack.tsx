@@ -6,6 +6,7 @@ import ReduxTraining from "../screens/ReduxTraining";
 import Login from "../screens/Login";
 import TodoList from "../screens/TodoList";
 import AddTodo from "../screens/AddTodo";
+import EnterTheApplication from "../screens/EnterTheApplication";
 
 
 type RootStackParamList = {
@@ -15,19 +16,21 @@ type RootStackParamList = {
   Login: undefined;
   TodoList: undefined;
   AddTodo: undefined;
+  EnterTheApplication: undefined;
 };
 
 
 export type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type TodoListProps = NativeStackScreenProps<RootStackParamList, 'TodoList'>;
 export type AddTodoProps = NativeStackScreenProps<RootStackParamList, 'AddTodo'>;
+export type EnterTheApplicationProps = NativeStackScreenProps<RootStackParamList, 'EnterTheApplication'>;
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={{
+    <Stack.Navigator initialRouteName="EnterTheApplication" screenOptions={{
       headerStyle: {
         backgroundColor: "#2c2c2c"
       },
@@ -43,6 +46,7 @@ const RootStack = () => {
       <Stack.Screen name="Login" component={Login} options={{title: 'Sign in'}}/>
       <Stack.Screen name="TodoList" component={TodoList} options={{title: 'TODO'}}/>
       <Stack.Screen name="AddTodo" component={AddTodo} options={{title: 'Add TODO'}}/>
+      <Stack.Screen name="EnterTheApplication" component={EnterTheApplication} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 };
