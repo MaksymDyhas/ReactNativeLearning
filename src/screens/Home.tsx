@@ -22,7 +22,7 @@ const Home = ({ navigation }: HomeProps) => {
         </View>
         <MyButton style={{ marginVertical: 15 }} title={"Click to enter profile"}
                   onPress={() => navigation.navigate("Profile")} />
-        <MyButton title={"Redux Training"} style={{ backgroundColor: "#090752" }}
+        <MyButton title={"Camera"} style={{ backgroundColor: "#090752" }}
                   onPress={() => navigation.navigate("ReduxTraining")} />
       </LinearGradient>
     </SafeAreaView>

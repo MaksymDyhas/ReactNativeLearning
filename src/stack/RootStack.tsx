@@ -7,6 +7,7 @@ import Login from "../screens/Login";
 import TodoList from "../screens/TodoList";
 import AddTodo from "../screens/AddTodo";
 import EnterTheApplication from "../screens/EnterTheApplication";
+import CameraScreen from "../screens/Camera";
 
 
 type RootStackParamList = {
@@ -17,6 +18,7 @@ type RootStackParamList = {
   TodoList: undefined;
   AddTodo: undefined;
   EnterTheApplication: undefined;
+  CameraScreen: undefined;
 };
 
 
@@ -24,6 +26,8 @@ export type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type TodoListProps = NativeStackScreenProps<RootStackParamList, 'TodoList'>;
 export type AddTodoProps = NativeStackScreenProps<RootStackParamList, 'AddTodo'>;
 export type EnterTheApplicationProps = NativeStackScreenProps<RootStackParamList, 'EnterTheApplication'>;
+export type CameraScreenProps = NativeStackScreenProps<RootStackParamList, 'CameraScreen'>;
+export type ReduxTrainingProps = NativeStackScreenProps<RootStackParamList, 'ReduxTraining'>;
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -47,6 +51,7 @@ const RootStack = () => {
       <Stack.Screen name="TodoList" component={TodoList} options={{title: 'TODO'}}/>
       <Stack.Screen name="AddTodo" component={AddTodo} options={{title: 'Add TODO'}}/>
       <Stack.Screen name="EnterTheApplication" component={EnterTheApplication} options={{headerShown: false}}/>
+      <Stack.Screen name="CameraScreen" component={CameraScreen} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 };

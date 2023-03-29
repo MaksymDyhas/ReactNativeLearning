@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
 import counter from "../slices/counterSlice";
+import photos from "../slices/photosSlice";
 
 
 const store = configureStore({
   reducer: {
     counter,
+    photos,
   },
 })
 
