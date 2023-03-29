@@ -47,7 +47,7 @@ const ReduxTraining = ({ navigation }: ReduxTrainingProps) => {
         <Counter propsStyle={{ marginVertical: 10, alignItems: "center" }} />
         <View style={{ alignItems: "center", marginTop: 20 }}>
           <View style={{ marginBottom: 10 }}>
-            <Button onPress={handlerOpenVideFolder} title={"Open video gallery"} />
+            <Button onPress={handlerOpenVideFolder} title={"Show paths to videos in console"} />
           </View>
           <Button onPress={askForPermissionCamera} title={"Open camera"} />
         </View>

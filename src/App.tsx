@@ -5,6 +5,7 @@ import SplashScreen from "react-native-splash-screen";
 import FlashMessage from "react-native-flash-message";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 function App() {
 
@@ -14,9 +15,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <StatusBar backgroundColor="#2c2c2c" />
-      <Navigation />
-      <FlashMessage position="top" />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <StatusBar backgroundColor="#2c2c2c" />
+        <Navigation />
+        <FlashMessage position="top" />
+      </GestureHandlerRootView>
     </Provider>
   );
 }
