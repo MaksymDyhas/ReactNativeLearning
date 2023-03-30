@@ -8,6 +8,7 @@ import TodoList from "../screens/TodoList";
 import AddTodo from "../screens/AddTodo";
 import EnterTheApplication from "../screens/EnterTheApplication";
 import CameraScreen from "../screens/Camera";
+import Animations from "../screens/Animations";
 
 
 type RootStackParamList = {
@@ -19,6 +20,7 @@ type RootStackParamList = {
   AddTodo: undefined;
   EnterTheApplication: undefined;
   CameraScreen: undefined;
+  Animations: undefined;
 };
 
 
@@ -52,6 +54,7 @@ const RootStack = () => {
       <Stack.Screen name="AddTodo" component={AddTodo} options={{title: 'Add TODO'}}/>
       <Stack.Screen name="EnterTheApplication" component={EnterTheApplication} options={{headerShown: false}}/>
       <Stack.Screen name="CameraScreen" component={CameraScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Animations" component={Animations} options={{title: 'Animations'}}/>
     </Stack.Navigator>
   );
 };

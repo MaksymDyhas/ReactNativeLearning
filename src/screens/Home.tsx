@@ -35,10 +35,10 @@ const Home = ({ navigation }: HomeProps) => {
               navigation.navigate("TodoList");
             }} />
             <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
-                      title={"Sign in (Encrypted)"}
+                      title={"Animations"}
                       onPress={() => {
                         bottomSheetRef.current?.close();
-                        navigation.navigate("Login");
+                        navigation.navigate("Animations");
                       }} />
             <TravelCar width={"90%"} height={100} style={styles.car} />
           </View>
