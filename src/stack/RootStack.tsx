@@ -9,6 +9,7 @@ import AddTodo from "../screens/AddTodo";
 import EnterTheApplication from "../screens/EnterTheApplication";
 import CameraScreen from "../screens/Camera";
 import Animations from "../screens/Animations";
+import MobxTraining from "../screens/MobxTraining";
 
 
 type RootStackParamList = {
@@ -21,6 +22,7 @@ type RootStackParamList = {
   EnterTheApplication: undefined;
   CameraScreen: undefined;
   Animations: undefined;
+  MobxTraining: undefined;
 };
 
 
@@ -48,13 +50,14 @@ const RootStack = () => {
     }}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Profile" component={Profile}/>
-      <Stack.Screen name="ReduxTraining" component={ReduxTraining} options={{title: 'Redux Training'}}/>
+      <Stack.Screen name="ReduxTraining" component={ReduxTraining} options={{title: 'Camera'}}/>
       <Stack.Screen name="Login" component={Login} options={{title: 'Sign in'}}/>
       <Stack.Screen name="TodoList" component={TodoList} options={{title: 'TODO'}}/>
       <Stack.Screen name="AddTodo" component={AddTodo} options={{title: 'Add TODO'}}/>
       <Stack.Screen name="EnterTheApplication" component={EnterTheApplication} options={{headerShown: false}}/>
       <Stack.Screen name="CameraScreen" component={CameraScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Animations" component={Animations} options={{title: 'Animations'}}/>
+      <Stack.Screen name="MobxTraining" component={MobxTraining} options={{title: 'Mobx'}}/>
     </Stack.Navigator>
   );
 };

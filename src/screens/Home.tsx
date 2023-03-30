@@ -42,10 +42,10 @@ const Home = ({ navigation }: HomeProps) => {
                       }} />
             <TravelCar width={"90%"} height={100} style={styles.car} />
           </View>
-          <MyButton style={{ marginVertical: 15 }} title={"Click to enter profile"}
+          <MyButton style={{ marginVertical: 15 }} title={"Mobx Training"}
                     onPress={() => {
                       bottomSheetRef.current?.close();
-                      navigation.navigate("Profile");
+                      navigation.navigate("MobxTraining");
                     }} />
           <MyButton title={"Camera"} style={{ backgroundColor: "#090752" }}
                     onPress={() => {
