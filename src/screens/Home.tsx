@@ -1,22 +1,16 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import { SafeAreaView, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
+import React, { useCallback, useRef } from "react";
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { TravelCar } from "../../assets/svgImages";
 import { HomeProps } from "../stack/RootStack";
 import MyButton from "../../src/components/MyButton";
 import BottomSheet from "@gorhom/bottom-sheet";
+import MyBottomSheet from "../components/MyBottomSheet";
 
 
 const Home = ({ navigation }: HomeProps) => {
-  const [bottomSheetIndex, setBottomSheetIndex] = useState<number>(-1);
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+
   const bottomSheetRef = useRef<BottomSheet>(null);
-
-  const snapPoints = useMemo(() => ["25%", "50%", "100%"], []);
-
-  const handleSheetChanges = useCallback((index: number) => {
-    setBottomSheetIndex(index);
-  }, []);
 
   const handlePresentModal = useCallback(() => {
     bottomSheetRef.current?.snapToIndex(0);
@@ -52,44 +46,10 @@ const Home = ({ navigation }: HomeProps) => {
                       bottomSheetRef.current?.close();
                       navigation.navigate("ReduxTraining");
                     }} />
-          <MyButton title={"Open bottom sheet"} style={{ backgroundColor: "#090752", marginTop: 15 }}
+          <MyButton title={"Bottom sheet (DeviceINFO)"} style={{ backgroundColor: "#090752", marginTop: 15 }}
                     onPress={handlePresentModal} />
         </TouchableOpacity>
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={-1}
-          snapPoints={snapPoints}
-          backgroundStyle={bottomSheetIndex === 2 ? { borderRadius:0 } : { borderRadius: 30 }}
-          enablePanDownToClose={true}
-          onChange={handleSheetChanges}
-        >
-          <View style={styles.contentContainer}>
-            <View style={styles.row}>
-              <Text style={{ fontSize: 16 }}>Dark Mode (Future)</Text>
-              <Switch value={darkMode} onChange={() => setDarkMode(!darkMode)} />
-            </View>
-            <Text style={{ fontSize: 16 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati,
-              provident?</Text>
-            <View style={{
-              width: "100%",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-              borderBottomColor: "grey",
-              marginVertical: 30
-            }} />
-            <View style={{ flex: 1, justifyContent: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>50%</Text>
-            </View>
-            <View style={{
-              width: "100%",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-              borderBottomColor: "black",
-              marginVertical: 10
-            }} />
-            <View style={{ flex: 2, justifyContent: "center" }}>
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>100%</Text>
-            </View>
-          </View>
-        </BottomSheet>
+          <MyBottomSheet ref={bottomSheetRef}/>
       </LinearGradient>
     </SafeAreaView>
   )
@@ -143,18 +103,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 15
   },
-  contentContainer: {
-    flex: 1,
-    alignItems: "center",
-    padding: 10
-  },
-  row: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginVertical: 10
-  }
 });
 
 
