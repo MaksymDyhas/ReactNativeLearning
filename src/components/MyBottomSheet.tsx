@@ -9,9 +9,12 @@ import {
   getPowerState,
   getSystemName,
   getSystemVersion,
-  isBatteryCharging, isHeadphonesConnected, isLocationEnabled,
+  isBatteryCharging,
+  isHeadphonesConnected,
+  isLocationEnabled,
   isPinOrFingerprintSet
 } from "react-native-device-info";
+import NetInfo, { NetInfoState } from "@react-native-community/netinfo";
 
 type Ref = BottomSheet
 
@@ -32,6 +35,8 @@ const MyBottomSheet = forwardRef<Ref>((props, ref) => {
     const deviceId = getDeviceId();
     const systemName = getSystemName();
     const systemVersion = getSystemVersion();
+
+    const [netState, setNetState] = useState<NetInfoState>();
 
     const getDeviceInfo = useCallback(() => {
       getFontScale().then((fontScale) => {
@@ -61,12 +66,12 @@ const MyBottomSheet = forwardRef<Ref>((props, ref) => {
       });
 
       isLocationEnabled().then((enabled) => {
-        setIsLocationEnableState(enabled)
+        setIsLocationEnableState(enabled);
       });
 
-      isHeadphonesConnected ( ) . then ( ( enabled )  =>  {
-        setIsHeadphonesConnectedState(enabled)
-      } ) ;
+      isHeadphonesConnected().then((enabled) => {
+        setIsHeadphonesConnectedState(enabled);
+      });
 
     }, []);
 
@@ -76,6 +81,12 @@ const MyBottomSheet = forwardRef<Ref>((props, ref) => {
 
     useEffect(() => {
       getDeviceInfo();
+      const unsubscribe = NetInfo.addEventListener(state => {
+        setNetState(state);
+      });
+      return function cleanup() {
+        unsubscribe && unsubscribe();
+      };
     }, []);
 
     return (
@@ -92,10 +103,10 @@ const MyBottomSheet = forwardRef<Ref>((props, ref) => {
             <Text style={{ fontSize: 16 }}>Dark Mode (Future)</Text>
             <Switch value={darkMode} onChange={() => setDarkMode(!darkMode)} />
           </View>
-          <Text style={{ fontSize: 16 }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati,
-            provident?</Text>
+          <Text style={{ fontSize: 16, color: "black" }}>"@react-native-community/netinfo" at the bottom of the bottom
+            sheet</Text>
           <View style={styles.bottomLine} />
-          <View style={{ flex: 2, justifyContent: "center" }}>
+          <View style={{ justifyContent: "center" }}>
             <Text style={styles.text}>Ідентифікатор пристрою: {deviceId}</Text>
             <Text style={styles.text}>Масштаб шрифту: {fontScale}</Text>
             <Text style={styles.text}>Вільного місця на пристрої: {freeDiskStorage + " GB"}</Text>
@@ -109,12 +120,27 @@ const MyBottomSheet = forwardRef<Ref>((props, ref) => {
             <Text style={styles.text}>Підключені навушники: {isHeadphonesConnectedState ? "Так" : "Ні"}</Text>
           </View>
           <View style={styles.bottomLine} />
-          <View style={{ flex: 1, justifyContent: "center", alignItems:'center'}}>
-            <Text style={{ fontSize: 20, fontWeight: "bold" }}>100%</Text>
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <Text style={styles.text}>Чи підключений до мережі: {netState && netState.isConnected ? "Так" : "Ні"}</Text>
+            {netState && netState.isConnected &&
+              <>
+                <Text style={styles.text}>Тип підключення: {netState && netState.type}</Text>
+                {netState && netState.type === "wifi" &&
+                  <>
+                    <Text style={styles.text}>Потужність
+                      сигналу: {netState && netState.details.strength + "/100"}</Text>
+                    <Text style={styles.text}>IP адреса: {netState && netState.details.ipAddress}</Text>
+                    <Text style={styles.text}>Швидкість
+                      з'єднання: {netState && netState.details.linkSpeed + " Мбіт/с"}</Text>
+                  </>
+                }
+              </>
+            }
           </View>
         </View>
       </BottomSheet>
-    );
+    )
+      ;
   })
 ;
 
@@ -139,7 +165,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     marginVertical: 2,
-    color: '#2f2e2e'
+    color: "#2f2e2e"
   }
 });
 

@@ -17,6 +17,7 @@ const Home = ({ navigation }: HomeProps) => {
   }, []);
 
 
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <LinearGradient colors={["#284db4", "rgba(134,46,46,0.82)", "rgb(61,54,54)"]}
@@ -46,7 +47,7 @@ const Home = ({ navigation }: HomeProps) => {
                       bottomSheetRef.current?.close();
                       navigation.navigate("ReduxTraining");
                     }} />
-          <MyButton title={"Bottom sheet (DeviceINFO)"} style={{ backgroundColor: "#090752", marginTop: 15 }}
+          <MyButton title={"DeviceINFO / Netinfo"} style={{ backgroundColor: "#090752", marginTop: 15 }}
                     onPress={handlePresentModal} />
         </TouchableOpacity>
           <MyBottomSheet ref={bottomSheetRef}/>
