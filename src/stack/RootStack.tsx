@@ -10,6 +10,7 @@ import EnterTheApplication from "../screens/EnterTheApplication";
 import CameraScreen from "../screens/Camera";
 import Animations from "../screens/Animations";
 import MobxTraining from "../screens/MobxTraining";
+import Geolocation from "../screens/Geolocation";
 
 
 type RootStackParamList = {
@@ -23,6 +24,7 @@ type RootStackParamList = {
   CameraScreen: undefined;
   Animations: undefined;
   MobxTraining: undefined;
+  Geolocation: undefined;
 };
 
 
@@ -58,6 +60,7 @@ const RootStack = () => {
       <Stack.Screen name="CameraScreen" component={CameraScreen} options={{headerShown: false}}/>
       <Stack.Screen name="Animations" component={Animations} options={{title: 'Animations'}}/>
       <Stack.Screen name="MobxTraining" component={MobxTraining} options={{title: 'Mobx'}}/>
+      <Stack.Screen name="Geolocation" component={Geolocation} options={{title: 'Geolocation'}}/>
     </Stack.Navigator>
   );
 };
