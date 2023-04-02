@@ -20,43 +20,45 @@ const Home = ({ navigation }: HomeProps) => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <LinearGradient colors={["#284db4", "rgba(134,46,46,0.82)", "rgb(61,54,54)"]}
-                      style={styles.linearGradient}>
-        <TouchableOpacity activeOpacity={1} onPressIn={() => bottomSheetRef.current?.close()}>
-          <View style={styles.forSvg}>
-            <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
-                      title={"WebView"} onPress={() => {
-              bottomSheetRef.current?.close();
-              navigation.navigate("WebView");
-            }} />
-            <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
-                      title={"GEOLOCATION"} onPress={() => {
-              bottomSheetRef.current?.close();
-              navigation.navigate("Geolocation");
-            }} />
-            <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
-                      title={"Animations"}
+        <LinearGradient colors={["#284db4", "rgba(134,46,46,0.82)", "rgb(61,54,54)"]}
+                        style={styles.linearGradient}>
+          <TouchableOpacity activeOpacity={1} onPressIn={() => bottomSheetRef.current?.close()}>
+            <View style={styles.forSvg}>
+
+              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+                        title={"WebView"} onPress={() => {
+                bottomSheetRef.current?.close();
+                navigation.navigate("WebView");
+              }} />
+              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+                        title={"GEOLOCATION"} onPress={() => {
+                bottomSheetRef.current?.close();
+                navigation.navigate("Geolocation");
+              }} />
+              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+                        title={"Animations"}
+                        onPress={() => {
+                          bottomSheetRef.current?.close();
+                          navigation.navigate("Animations");
+                        }} />
+              <TravelCar width={"90%"} height={100} style={styles.car} />
+            </View>
+            <MyButton style={{ marginVertical: 15 }} title={"MobxTraining/Copilot"}
                       onPress={() => {
                         bottomSheetRef.current?.close();
-                        navigation.navigate("Animations");
+                        navigation.navigate("MobxTraining");
                       }} />
-            <TravelCar width={"90%"} height={100} style={styles.car} />
-          </View>
-          <MyButton style={{ marginVertical: 15 }} title={"Mobx Training"}
-                    onPress={() => {
-                      bottomSheetRef.current?.close();
-                      navigation.navigate("MobxTraining");
-                    }} />
-          <MyButton title={"Camera"} style={{ backgroundColor: "#090752" }}
-                    onPress={() => {
-                      bottomSheetRef.current?.close();
-                      navigation.navigate("ReduxTraining");
-                    }} />
-          <MyButton title={"DeviceINFO / Netinfo"} style={{ backgroundColor: "#090752", marginTop: 15 }}
-                    onPress={handlePresentModal} />
-        </TouchableOpacity>
-          <MyBottomSheet ref={bottomSheetRef}/>
-      </LinearGradient>
+            <MyButton title={"Camera"} style={{ backgroundColor: "#090752" }}
+                      onPress={() => {
+                        bottomSheetRef.current?.close();
+                        navigation.navigate("ReduxTraining");
+                      }} />
+
+            <MyButton title={"DeviceINFO / NetInfo"} style={{ backgroundColor: "#090752", marginTop: 15 }}
+                      onPress={handlePresentModal} />
+          </TouchableOpacity>
+          <MyBottomSheet ref={bottomSheetRef} />
+        </LinearGradient>
     </SafeAreaView>
   )
     ;
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     paddingHorizontal: 15
-  },
+  }
 });
 
 

@@ -6,6 +6,9 @@ import FlashMessage from "react-native-flash-message";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { CopilotProvider } from "react-native-copilot";
+
+
 
 function App() {
 
@@ -17,7 +20,9 @@ function App() {
     <Provider store={store}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <StatusBar backgroundColor="#2c2c2c" />
+        <CopilotProvider verticalOffset={30}>
         <Navigation />
+        </CopilotProvider>
         <FlashMessage position="top" />
       </GestureHandlerRootView>
     </Provider>
