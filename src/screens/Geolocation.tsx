@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React, { useCallback, useEffect, useState } from "react";
+import { Alert, Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { PERMISSIONS, request } from "react-native-permissions";
 import Geolocation from "@react-native-community/geolocation";
+import { GeolocationProps } from "../stack/RootStack";
 
-const Geolocations = () => {
+const Geolocations = ({ navigation }: GeolocationProps) => {
   const [currentLongitude, setCurrentLongitude] = useState<number>();
   const [currentLatitude, setCurrentLatitude] = useState<number>();
   const [locationStatus, setLocationStatus] = useState("Press on button above");
 
-  const askForPermissionCamera = () => {
+  const askForPermissionCamera = useCallback(() => {
     setLocationStatus("Getting Location...");
     request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION).then(result => {
       if (result === "granted") {
@@ -20,9 +21,12 @@ const Geolocations = () => {
         }, (error) => {
           console.log(error);
         });
+      } else {
+        Alert.alert("Для використання потрібна геолокація");
+        navigation.goBack();
       }
-    });
-  };
+    }).catch(e => console.log(e));
+  }, []);
 
   useEffect(() => {
     const id = Geolocation.watchPosition((position) => {
@@ -46,11 +50,11 @@ const Geolocations = () => {
         </View>
         <View style={{ flex: 1, alignItems: "center" }}>
           <Text style={{ color: "white", fontSize: 22 }}>{locationStatus}</Text>
-          {locationStatus !== 'Press on button above' &&
-           <>
-            <Text style={{ color: "white", fontSize: 22 }}>CurrentLatitude: {currentLatitude}</Text>
-            <Text style={{color: "white", fontSize: 22}}>CurrentLongitude: {currentLongitude}</Text>
-           </>
+          {locationStatus !== "Press on button above" &&
+            <>
+              <Text style={{ color: "white", fontSize: 22 }}>CurrentLatitude: {currentLatitude}</Text>
+              <Text style={{ color: "white", fontSize: 22 }}>CurrentLongitude: {currentLongitude}</Text>
+            </>
           }
         </View>
       </LinearGradient>

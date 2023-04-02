@@ -25,9 +25,9 @@ const Home = ({ navigation }: HomeProps) => {
         <TouchableOpacity activeOpacity={1} onPressIn={() => bottomSheetRef.current?.close()}>
           <View style={styles.forSvg}>
             <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
-                      title={"Todo List (Async Storage)"} onPress={() => {
+                      title={"WebView"} onPress={() => {
               bottomSheetRef.current?.close();
-              navigation.navigate("TodoList");
+              navigation.navigate("WebView");
             }} />
             <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
                       title={"GEOLOCATION"} onPress={() => {

@@ -11,6 +11,7 @@ import CameraScreen from "../screens/Camera";
 import Animations from "../screens/Animations";
 import MobxTraining from "../screens/MobxTraining";
 import Geolocation from "../screens/Geolocation";
+import WebView from "../screens/WebView";
 
 
 type RootStackParamList = {
@@ -25,6 +26,7 @@ type RootStackParamList = {
   Animations: undefined;
   MobxTraining: undefined;
   Geolocation: undefined;
+  WebView: undefined;
 };
 
 
@@ -34,6 +36,7 @@ export type AddTodoProps = NativeStackScreenProps<RootStackParamList, 'AddTodo'>
 export type EnterTheApplicationProps = NativeStackScreenProps<RootStackParamList, 'EnterTheApplication'>;
 export type CameraScreenProps = NativeStackScreenProps<RootStackParamList, 'CameraScreen'>;
 export type ReduxTrainingProps = NativeStackScreenProps<RootStackParamList, 'ReduxTraining'>;
+export type GeolocationProps = NativeStackScreenProps<RootStackParamList, 'Geolocation'>;
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -61,6 +64,7 @@ const RootStack = () => {
       <Stack.Screen name="Animations" component={Animations} options={{title: 'Animations'}}/>
       <Stack.Screen name="MobxTraining" component={MobxTraining} options={{title: 'Mobx'}}/>
       <Stack.Screen name="Geolocation" component={Geolocation} options={{title: 'Geolocation'}}/>
+      <Stack.Screen name="WebView" component={WebView} options={{title: 'WebView'}}/>
     </Stack.Navigator>
   );
 };
