@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useCallback, useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { AddTodoProps } from "../stack/RootStack";
+import { AddTodoProps } from "../../stack/RootStack";
 
 
 const AddTodo = ({ navigation }: AddTodoProps) => {

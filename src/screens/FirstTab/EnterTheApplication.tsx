@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Alert, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { EnterTheApplicationProps } from "../stack/RootStack";
+import { EnterTheApplicationProps } from "../../stack/RootStack";
 import { showMessage } from "react-native-flash-message";
-import { FingerPrint } from "../../assets/svgImages";
+import { FingerPrint } from "../../../assets/svgImages";
 import EncryptedStorage from "react-native-encrypted-storage";
 import ReactNativeBiometrics from "react-native-biometrics";
 

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { TodoListProps } from "../stack/RootStack";
+import { TodoListProps } from "../../stack/RootStack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TodoList = ({ navigation }: TodoListProps) => {

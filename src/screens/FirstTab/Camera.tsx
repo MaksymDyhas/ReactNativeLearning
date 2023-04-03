@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { Alert, StyleSheet, TouchableOpacity, View } from "react-native";
 import { RNCamera, TakePictureResponse } from "react-native-camera";
-import { CameraScreenProps } from "../stack/RootStack";
-import { useAppDispatch } from "../redux/store";
-import { add } from "../redux/slices/photosSlice";
+import { CameraScreenProps } from "../../stack/RootStack";
+import { useAppDispatch } from "../../redux/store";
+import { add } from "../../redux/slices/photosSlice";
 import RNFS from "react-native-fs";
 
 const CameraScreen = ({ navigation }: CameraScreenProps) => {

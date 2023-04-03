@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import Counter from "../components/Counter";
+import Counter from "../../components/Counter";
 import { PERMISSIONS, request } from "react-native-permissions";
-import { ReduxTrainingProps } from "../stack/RootStack";
-import { useAppSelector } from "../redux/store";
+import { ReduxTrainingProps } from "../../stack/RootStack";
+import { useAppSelector } from "../../redux/store";
 import RNFS from "react-native-fs";
 
 

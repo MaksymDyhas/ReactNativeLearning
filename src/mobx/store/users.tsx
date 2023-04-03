@@ -1,6 +1,6 @@
 import { action, makeAutoObservable } from "mobx";
 
-type UsersField = {
+export type UsersField = {
   id: number,
   name: string,
   phone: string,
@@ -29,6 +29,10 @@ class Users {
       name,
       phone
     }];
+  }
+
+  array() {
+    return this.users.slice();
   }
 
 }

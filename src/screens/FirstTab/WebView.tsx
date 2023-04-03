@@ -64,7 +64,7 @@ const WebViews = ({}) => {
                             handleRefresh();
                             webViewRef.current?.reload();
                           }}>
-          <Animated.Image source={require("../../assets/refresh.png")} style={[styles.img, rnStyleRotate]} />
+          <Animated.Image source={require("../../../assets/refresh.png")} style={[styles.img, rnStyleRotate]} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonNav}
                           onPress={() => webViewRef.current?.goForward()}>

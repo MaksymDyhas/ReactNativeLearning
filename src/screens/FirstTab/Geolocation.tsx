@@ -3,7 +3,7 @@ import { Alert, Button, SafeAreaView, StyleSheet, Text, View } from "react-nativ
 import LinearGradient from "react-native-linear-gradient";
 import { PERMISSIONS, request } from "react-native-permissions";
 import Geolocation from "@react-native-community/geolocation";
-import { GeolocationProps } from "../stack/RootStack";
+import { GeolocationProps } from "../../stack/RootStack";
 
 const Geolocations = ({ navigation }: GeolocationProps) => {
   const [currentLongitude, setCurrentLongitude] = useState<number>();

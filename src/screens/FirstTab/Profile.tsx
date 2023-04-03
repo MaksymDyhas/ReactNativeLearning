@@ -10,7 +10,7 @@ const Profile = () => {
                       style={styles.linearGradient}>
         <View style={styles.topOfPage}>
           <View style={styles.forPhoto}>
-            <Image style={styles.photo} source={require("../../assets/white-man-person-icon.png")} />
+            <Image style={styles.photo} source={require("../../../assets/white-man-person-icon.png")} />
           </View>
           <View style={styles.forInfo}>
             <View style={styles.nameAndSurname}>

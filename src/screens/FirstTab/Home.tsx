@@ -1,11 +1,11 @@
 import React, { useCallback, useRef } from "react";
 import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { TravelCar } from "../../assets/svgImages";
-import { HomeProps } from "../stack/RootStack";
-import MyButton from "../../src/components/MyButton";
+import { TravelCar } from "../../../assets/svgImages";
+import { HomeProps } from "../../stack/RootStack";
+import MyButton from "../../components/MyButton";
 import BottomSheet from "@gorhom/bottom-sheet";
-import MyBottomSheet from "../components/MyBottomSheet";
+import MyBottomSheet from "../../components/MyBottomSheet";
 
 
 const Home = ({ navigation }: HomeProps) => {
@@ -25,17 +25,17 @@ const Home = ({ navigation }: HomeProps) => {
           <TouchableOpacity activeOpacity={1} onPressIn={() => bottomSheetRef.current?.close()}>
             <View style={styles.forSvg}>
 
-              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+              <MyButton style={{ marginTop: 12, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
                         title={"WebView"} onPress={() => {
                 bottomSheetRef.current?.close();
                 navigation.navigate("WebView");
               }} />
-              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+              <MyButton style={{ marginTop: 12, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
                         title={"GEOLOCATION"} onPress={() => {
                 bottomSheetRef.current?.close();
                 navigation.navigate("Geolocation");
               }} />
-              <MyButton style={{ marginTop: 15, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
+              <MyButton style={{ marginTop: 12, backgroundColor: "rgb(0,0,0)", borderColor: "#fcfcfc" }}
                         title={"Animations"}
                         onPress={() => {
                           bottomSheetRef.current?.close();
@@ -43,7 +43,7 @@ const Home = ({ navigation }: HomeProps) => {
                         }} />
               <TravelCar width={"90%"} height={100} style={styles.car} />
             </View>
-            <MyButton style={{ marginVertical: 15 }} title={"MobxTraining/Copilot"}
+            <MyButton style={{ marginVertical: 12 }} title={"MobxTraining/Copilot"}
                       onPress={() => {
                         bottomSheetRef.current?.close();
                         navigation.navigate("MobxTraining");
@@ -54,7 +54,7 @@ const Home = ({ navigation }: HomeProps) => {
                         navigation.navigate("ReduxTraining");
                       }} />
 
-            <MyButton title={"DeviceINFO / NetInfo"} style={{ backgroundColor: "#090752", marginTop: 15 }}
+            <MyButton title={"DeviceINFO / NetInfo"} style={{ backgroundColor: "#090752", marginTop: 12 }}
                       onPress={handlePresentModal} />
           </TouchableOpacity>
           <MyBottomSheet ref={bottomSheetRef} />
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   car: {
-    marginVertical: 50,
+    marginVertical: 30,
     padding: 0,
     fill: "#1a1c1a",
     marginLeft: "5%"
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 15
+    paddingHorizontal: 15,
   }
 });
 
